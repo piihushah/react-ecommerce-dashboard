@@ -25,12 +25,13 @@ function CartPage({ cart, removeFromCart, updateQuantity }) {
                 key={item.id}
                 className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 p-4 rounded-lg border border-(var(--border))"
               >
-                <div>
-                  <h3 className="text-lg font-semibold">{item.name}</h3>
-
-                  <p className="text-sm">Price: ${item.price.toFixed(2)}</p>
-
-                  <p className="text-sm">Subtotal: ${(item.price * item.quantity).toFixed(2)}</p>
+                <div className="flex items-center gap-4">
+                  <img src={item.image} alt={item.name} className="w-15 h-15 object-cover" />
+                  <div>
+                    <h3 className="text-lg font-semibold">{item.name}</h3>
+                    <p className="text-sm">Price: ${item.price.toFixed(2)}</p>
+                    <p className="text-sm">Subtotal: ${(item.price * item.quantity).toFixed(2)}</p>
+                  </div>
                 </div>
 
                 <div className="flex items-center gap-4">
@@ -56,7 +57,7 @@ function CartPage({ cart, removeFromCart, updateQuantity }) {
           <div className="mt-8 flex flex-col items-end gap-4">
             <h2 className="text-2xl font-bold">Total: ${total.toFixed(2)}</h2>
 
-            <Link to="/CheckoutPage" className="px-6 py-3 rounded-md bg-(--primary-color) text-white">
+            <Link to="/checkout" className="px-6 py-3 rounded-md bg-(--primary-color) text-white">
               Proceed to Checkout
             </Link>
           </div>
