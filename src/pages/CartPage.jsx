@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
+import { FaTrash } from "react-icons/fa";
 import BackButton from "../components/BackButton";
+import Button from "../components/Button";
 
 function CartPage({ cart, removeFromCart, updateQuantity }) {
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -43,12 +45,13 @@ function CartPage({ cart, removeFromCart, updateQuantity }) {
                     className="w-20 p-2 border rounded"
                   />
 
-                  <button
+                  <Button
+                    variant="danger"
                     onClick={() => removeFromCart(item.id)}
                     className="px-4 py-2 bg-red-500 text-white rounded-md"
                   >
-                    Remove
-                  </button>
+                    <FaTrash className="h-5 w-5" />
+                  </Button>
                 </div>
               </div>
             ))}

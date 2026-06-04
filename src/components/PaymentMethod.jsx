@@ -1,3 +1,5 @@
+import Button from "./Button";
+
 function PaymentMethod() {
   return (
     <div>
@@ -25,10 +27,7 @@ function PaymentMethod() {
             <input type="text" id="cvv" className="w-full p-2 border rounded" placeholder="123" />
           </div>
         </div>
-
-        <button type="submit" className="px-6 py-3 rounded-md bg-(--primary-color) text-white">
-          Place Order
-        </button>
+        <Button variant="primary">Place Order</Button>
       </form>
     </div>
   );

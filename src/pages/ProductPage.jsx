@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import BackButton from "../components/BackButton";
+import Button from "../components/Button";
 
 function ProductPage({ addToCart }) {
   const { id } = useParams();
@@ -46,14 +47,10 @@ function ProductPage({ addToCart }) {
                 <span className="text-(--text-color) font-bold">Rating:</span> {foundProduct.rating} ⭐
               </p>
               <div className="flex items-center gap-4 mt-4">
-                <button
-                  className="mt-4 px-4 py-2 bg-(--primary-color) text-(--surface-color) hover:bg-(--secondary-color) transition-colors rounded-md shadow-md cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed flex items-center"
-                  disabled={foundProduct.stock === 0}
-                  onClick={() => addToCart(foundProduct)}
-                >
+                <Button variant="primary" disabled={foundProduct.stock === 0} onClick={() => addToCart(foundProduct)}>
                   <FaShoppingCart className="mr-2" />
                   Add to Cart
-                </button>
+                </Button>
               </div>
             </div>
           </div>
