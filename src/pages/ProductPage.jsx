@@ -47,7 +47,12 @@ function ProductPage({ addToCart }) {
                 <span className="text-(--text-color) font-bold">Rating:</span> {foundProduct.rating} ⭐
               </p>
               <div className="flex items-center gap-4 mt-4">
-                <Button variant="primary" disabled={foundProduct.stock === 0} onClick={() => addToCart(foundProduct)}>
+                <Button
+                  variant="primary"
+                  disabled={foundProduct.stock === 0}
+                  onClick={() => addToCart(foundProduct)}
+                  className="flex items-center"
+                >
                   <FaShoppingCart className="mr-2" />
                   Add to Cart
                 </Button>
