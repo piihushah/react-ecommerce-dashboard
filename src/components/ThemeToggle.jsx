@@ -10,11 +10,11 @@ function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="rounded-md p-2 text-(--text-primary) transition-colors hover:bg-(var(--border))"
+      className="rounded-md p-1 text-(--text-primary) transition-colors hover:bg-(var(--border)) cursor-pointer"
       aria-label="Toggle theme"
     >
-      <FaSun className="h-5 w-5 text-yellow-500 dark:hidden" />
-      <FaMoon className="hidden h-5 w-5 text-white dark:block" />
+      <FaSun className="h-3 w-3 text-yellow-500 dark:hidden" />
+      <FaMoon className="hidden h-3 w-3 text-white dark:block" />
     </button>
   );
 }

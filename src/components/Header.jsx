@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
-import ThemeToggle from "./ThemeToggle";
+import logo from "../../public/logo.png";
 
 function Header({ cart }) {
   return (
@@ -8,12 +8,10 @@ function Header({ cart }) {
       <header className="py-4 border-b border-(var(--border))">
         <div className="container mx-auto flex items-center justify-between px-6 md:max-w-7xl">
           <Link to="/" className="text-xl font-semibold text-(--primary-color)">
-            E-commerce
+            <img src={logo} alt="Logo" className="h-auto w-40 inline-block mr-2 object-contain" />
           </Link>
 
           <div className="flex items-center gap-4">
-            <ThemeToggle />
-
             <Link to="/cart" className="text-(--text-color)">
               <div className="flex items-center gap-1.5">
                 <FaShoppingCart /> ({cart.length})
@@ -22,7 +20,7 @@ function Header({ cart }) {
           </div>
         </div>
       </header>
-      <div className="bg-(--background-color) text-(--text-color) py-4">
+      <div className="bg-(--background-color) text-(--text-color) pt-12 pb-4">
         <div className="container md:max-w-7xl mx-auto px-6 flex items-left flex-col gap-2">
           <h1 className="text-3xl font-bold">Welcome to Our Store!</h1>
           <h2 className="text-xl">Find the best products at unbeatable prices.</h2>

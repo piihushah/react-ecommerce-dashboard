@@ -6,6 +6,7 @@ import ProductGrid from "./components/ProductGrid";
 import ProductPage from "./pages/ProductPage";
 import CartPage from "./pages/CartPage";
 import CheckoutPage from "./pages/CheckoutPage";
+import ThemeToggle from "./components/ThemeToggle";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -35,7 +36,6 @@ function App() {
   return (
     <div className="bg-(--background-color) text-(--text-color) min-h-screen">
       <Header cart={cart} />
-
       <main className="min-h-screen">
         <Routes>
           <Route path="/" element={<ProductGrid />} />
@@ -47,8 +47,10 @@ function App() {
           <Route path="/checkout" element={<CheckoutPage cart={cart} />} />
         </Routes>
       </main>
-
       <Footer />
+      <div className="fixed bottom-1/2 right-3 p-1.5 bg-(--primary-color) text-(--muted-color) rounded-none shadow-lg">
+        <ThemeToggle />
+      </div>
     </div>
   );
 }
