@@ -57,8 +57,12 @@ function CartPage({ cart, removeFromCart, updateQuantity }) {
             ))}
           </div>
 
-          <div className="mt-8 flex flex-col items-end gap-4">
-            <h2 className="text-2xl font-bold">Total: ${total.toFixed(2)}</h2>
+          <div className="mt-8 flex flex-col items-end gap-1">
+            <h3 className="text-lg font-semibold">Items: {cart.length}</h3>
+            <h4 className="text-lg font-semibold">Subtotal: ${total.toFixed(2)}</h4>
+            <h4 className="text-lg font-semibold">Tax: ${(total * 0.08).toFixed(2)}</h4>
+            <h4 className="text-lg font-semibold">Shipping: {total > 50 ? "Free" : "$5.00"}</h4>
+            <h2 className="text-2xl font-bold">Total: ${(total + total * 0.08 + (total > 50 ? 0 : 5.0)).toFixed(2)}</h2>
 
             <Link to="/checkout" className="px-6 py-3 rounded-md bg-(--primary-color) text-white">
               Proceed to Checkout

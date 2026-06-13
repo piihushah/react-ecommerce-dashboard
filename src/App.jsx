@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ProductGrid from "./components/ProductGrid";
@@ -9,7 +9,14 @@ import CheckoutPage from "./pages/CheckoutPage";
 import ThemeToggle from "./components/ThemeToggle";
 
 function App() {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(() => {
+    const storedCart = localStorage.getItem("cart");
+    return storedCart ? JSON.parse(storedCart) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   function addToCart(product) {
     setCart((prevCart) => {
@@ -18,7 +25,6 @@ function App() {
       if (existingProduct) {
         return prevCart.map((item) => (item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item));
       }
-
       return [...prevCart, { ...product, quantity: 1 }];
     });
   }
